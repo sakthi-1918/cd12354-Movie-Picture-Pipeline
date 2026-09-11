@@ -91,6 +91,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run tests
+        env:
+          CI: true
+        run: npm run test
+
       - name: Build Docker image
         env:
           REACT_APP_MOVIE_API_URL: http://localhost:5000
