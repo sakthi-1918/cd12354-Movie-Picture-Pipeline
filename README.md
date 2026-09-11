@@ -466,6 +466,20 @@ kustomize edit set image backend=<ECR_REPO_URL>:<NEW_TAG_HERE>
 kustomize build | kubectl apply -f -
 ```
 
+## Live Deployment Endpoints
+
+The applications have been deployed to the Amazon EKS cluster via GitHub Actions Continuous Deployment pipelines and are publicly accessible through AWS Elastic Load Balancers:
+
+- **Frontend Application (Web UI)**:
+  `http://a69188135b3534b01b938c5cd3cf971c-1007074040.us-east-1.elb.amazonaws.com`
+- **Backend API (Movies Endpoint)**:
+  `http://aeb025068f8124889985cab6b27469ba-1239211439.us-east-1.elb.amazonaws.com/movies`
+
+**Cluster Details**:
+- **EKS Cluster**: `cluster` (Region: `us-east-1`)
+- **Backend Service Type**: LoadBalancer (Port 80 -> Container 5000)
+- **Frontend Service Type**: LoadBalancer (Port 80 -> Container 3000)
+
 ## License
 
 [License](LICENSE.md)
